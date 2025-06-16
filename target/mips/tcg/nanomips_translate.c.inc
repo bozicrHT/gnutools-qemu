@@ -782,7 +782,6 @@ enum {
     NM_RADDU_W_QB       = 0x78,
 
     NM_BITSWAP          = 0x05,
-    NM_WSBH             = 0x3d,
 };
 
 /* PP.SR instruction pool */
@@ -2115,9 +2114,6 @@ static void gen_pool32axf_4_nanomips_insn(DisasContext *ctx, uint32_t opc,
     case NM_CLZ:
         check_nms(ctx);
         gen_cl(ctx, OPC_CLZ, ret, rs);
-        break;
-    case NM_WSBH:
-        gen_bshfl(ctx, OPC_WSBH, ret, rs);
         break;
     default:
         gen_reserved_instruction(ctx);
